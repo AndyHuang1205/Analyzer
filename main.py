@@ -1,10 +1,11 @@
-import tkinter as tk
-from tkinter import filedialog
-import pandas as pd
+from downloadRequirements import install
+install()
+
+
 import os
 import shutil
-import openpyxl
-import excel
+import tkinter as tk
+from tkinter import filedialog
 
 
 def clear_directory(directory_path):
@@ -39,6 +40,7 @@ def upload_csv():
     file_path = filedialog.askopenfilename(filetypes=[("CSV files", "*.csv")])
 
     if file_path:
+        clear_directory("uploaded_files")
         # Define the directory to save the file
         save_directory = os.path.expanduser("uploaded_files")
 
@@ -67,6 +69,7 @@ def upload_csvs():
     file_paths = filedialog.askopenfilenames(filetypes=[("CSV files", "*.csv")])
 
     if file_paths:
+        clear_directory("uploaded_files")
         # Define the directory to save the file
         save_directory = os.path.expanduser("uploaded_files")
 
@@ -118,11 +121,11 @@ center_window(root, window_width, window_height)
 root.focus_force()
 
 # Create a button that allows the user to upload a CSV file
-# upload_button = tk.Button(root, text="Upload File", command=upload_csv, width=20, )
+upload_button = tk.Button(root, text="Upload File", command=upload_csv, width=20, )
 # upload_button1 = tk.Button(root, text="Upload Multiple Files", command=upload_csvs, width=20)
-# upload_button.pack(pady=20)
+upload_button.pack(pady=20)
 # upload_button1.pack()
-# root.lift()
+root.lift()
 # file_name = "example_data.xlsx"
 # create_excel_file(file_name)
 
