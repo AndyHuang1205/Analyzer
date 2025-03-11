@@ -3,6 +3,7 @@ import requests
 # API_KEY = "PNlzuoFjjfSKGm6AvT9LUqceImADlzL0"
 LOCATION_KEY = "2102499"
 API_KEY = '794dd492f0181a66f673f0973093d5f4'
+# API_KEY = 'c3a7339716c71e222b55dbb7b2425c50'
 lat = 40.60407
 lon = -74.13266
 
@@ -20,8 +21,9 @@ def get_temperature(date):
     if response.status_code == 200 and data:
         high_temp = kelvin_to_fahrenheit(data["temperature"]["max"])
         low_temp = kelvin_to_fahrenheit(data["temperature"]["min"])
-        return high_temp,low_temp
+        return high_temp.__round__(2), low_temp.__round__(2)
     return None, None
 
+
 if __name__ == "__main__":
-    print(get_temperature("2024-12-01"))
+    print(get_temperature("2025-03-10"))
