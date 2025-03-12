@@ -82,18 +82,12 @@ def createMainWindow():
     # Set the window size
     window_width = 400
     window_height = 200
-    # Center the window
+
     center_window(root, window_width, window_height)
     root.focus_force()
     # Create a button that allows the user to upload a CSV file
     upload_button = tk.Button(root, text="Upload File", command=lambda: upload_csvs(root), width=20)
-    # upload_button1 = tk.Button(root, text="Upload Multiple Files", command=upload_csvs, width=20)
     upload_button.pack(pady=20)
-    # upload_button1.pack()
     root.lift()
-    # file_name = "example_data.xlsx"
-    # create_excel_file(file_name)
-
-    # Start the Tkinter event loop
     root.mainloop()
 
