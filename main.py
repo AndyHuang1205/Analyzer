@@ -4,7 +4,7 @@ from setup import install
 from interface import createMainWindow
 from excel import returnCSVData
 from temperature import get_temperature
-# install()
+install()
 import pandas as pd
 
 createMainWindow()
