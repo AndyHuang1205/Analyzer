@@ -35,7 +35,6 @@ file_path = os.path.join(downloads_path, 'EnergyData.xlsx')
 
 with pd.ExcelWriter(file_path) as writer:
     df.to_excel(writer, sheet_name='Data', index=False)
-    print(date_usage_table.index)
     date_usage_table.to_excel(writer, sheet_name='DateTable', index=False)
     time_usage_table.to_excel(writer, sheet_name='Usage by Time', index=False)
     print("Completed")
