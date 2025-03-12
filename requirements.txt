@@ -4,5 +4,3 @@ excel
 matplotlib
 numpy
 requests
-joblib
-xlsxwriter

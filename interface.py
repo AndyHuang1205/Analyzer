@@ -30,12 +30,11 @@ def clear_directory(directory_path):
         print(f"Error clearing the directory: {e}")
 
 
-def upload_csvs():
+def upload_csvs(root):
     # Open file dialog to choose CSV file
     file_paths = filedialog.askopenfilenames(filetypes=[("CSV files", "*.csv")])
 
     if file_paths:
-        clear_directory("uploaded_files")
         # Define the directory to save the file
         save_directory = os.path.expanduser("uploaded_files")
 
@@ -58,6 +57,7 @@ def upload_csvs():
                 print(f"Error saving the file {file_name}: {e}")
     else:
         print("No file selected.")
+    root.destroy()
 
 
 def center_window(window, width, height):
@@ -86,7 +86,7 @@ def createMainWindow():
     center_window(root, window_width, window_height)
     root.focus_force()
     # Create a button that allows the user to upload a CSV file
-    upload_button = tk.Button(root, text="Upload File", command=upload_csvs, width=20, )
+    upload_button = tk.Button(root, text="Upload File", command=lambda: upload_csvs(root), width=20)
     # upload_button1 = tk.Button(root, text="Upload Multiple Files", command=upload_csvs, width=20)
     upload_button.pack(pady=20)
     # upload_button1.pack()
